@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<addon id="service.tvlight" name="tvlight" version="0.1.0" provider-name="ehb">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Screen edges to WLED LED strips (DDP), Raspberry Pi 4</summary>
+    <summary lang="de_DE">Bildr&#228;nder auf WLED-LED-Streifen (DDP), Raspberry Pi 4</summary>
+    <description lang="en_GB">Ambient light without an HDMI grabber: tvlight reads the picture edges straight from Kodi's display planes (DRM/KMS on a Raspberry Pi 4: H.264, HEVC 8 and 10 bit, the GUI and music visualisations) and sends the zone colours to a WLED controller over DDP. Active during the music visualisation and fullscreen video only. Strips on up to four edges, letterbox bars burnt into the video are left out, and a test pattern while the settings are open helps to set up the strips.</description>
+    <description lang="de_DE">Umgebungslicht ohne HDMI-Grabber: tvlight liest die Bildr&#228;nder direkt aus Kodis Anzeige-Ebenen (DRM/KMS auf einem Raspberry Pi 4: H.264, HEVC 8 und 10 Bit, die Oberfl&#228;che und Musik-Visualisierungen) und schickt die Zonenfarben per DDP an einen WLED-Controller. Aktiv nur bei Musik-Visualisierung und Vollbild-Video. Streifen an bis zu vier R&#228;ndern, im Video eingebrannte Balken werden ausgelassen, und ein Testmuster bei offenen Einstellungen hilft beim Einrichten.</description>
+    <disclaimer lang="en_GB">Raspberry Pi 4 with LibreELEC 12 (Kodi 21) only: it reads the vc4 display planes and needs python3 with Pillow on the system. Other platforms are untested.</disclaimer>
+    <disclaimer lang="de_DE">Nur Raspberry Pi 4 mit LibreELEC 12 (Kodi 21): liest die vc4-Anzeige-Ebenen und braucht python3 mit Pillow im System. Andere Plattformen sind ungetestet.</disclaimer>
+    <platform>linux</platform>
+    <license>GPL-2.0-or-later</license>
+    <source>https://github.com/ehb/tvlight</source>
+    <news>v0.1.0
+- First release: H.264, HEVC 8/10 bit (SAND128), GUI and visualisations
+- Colour matrix and range from the video plane, letterbox bar detection
+- Four edges, test pattern while the settings are open</news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>

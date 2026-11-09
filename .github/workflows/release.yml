@@ -1,0 +1,56 @@
+name: release
+
+# A tag vX.Y.Z runs the selftest, builds the add-on zip with tools/build_zip.py and attaches
+# it to the GitHub Release of that tag.
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    container: debian:12@sha256:268fb24c39bca92d326dd83ea3abebe4a3f7751c804ffef23bb6d857dd343ff8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install Python and the Pillow of LibreELEC 12
+        run: |
+          apt-get update -qq
+          apt-get install -y --no-install-recommends python3 python3-pip
+          pip3 install --break-system-packages --no-cache-dir Pillow==10.2.0
+      - run: python3 test/tvlight_selftest.py
+      - name: Build the zip
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          python3 tools/build_zip.py
+          ls dist
+          test -f "dist/service.tvlight-${TAG#v}.zip"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: addon
+          path: dist/*.zip
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: addon
+          path: dist
+      - name: Create the release and attach the zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release view "$TAG" > /dev/null 2>&1 || gh release create "$TAG" --title "$TAG" --generate-notes --verify-tag
+          gh release upload "$TAG" dist/*.zip --clobber

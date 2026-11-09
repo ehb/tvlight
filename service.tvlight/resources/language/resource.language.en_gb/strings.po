@@ -1,0 +1,137 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Kodi Media Center language file
+# Addon Name: tvlight
+# Addon id: service.tvlight
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+
+msgctxt "#30000"
+msgid "General"
+msgstr ""
+
+msgctxt "#30001"
+msgid "WLED"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Enabled"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Send the screen edges while the music visualisation or fullscreen video is on screen. Off: the LEDs keep WLED's own light."
+msgstr ""
+
+msgctxt "#30004"
+msgid "WLED address"
+msgstr ""
+
+msgctxt "#30005"
+msgid "IP address of the WLED controller. An IP works more reliably than a host name on LibreELEC."
+msgstr ""
+
+msgctxt "#30006"
+msgid "DDP port"
+msgstr ""
+
+msgctxt "#30007"
+msgid "UDP port WLED listens on for DDP. WLED's default is 4048."
+msgstr ""
+
+msgctxt "#30010"
+msgid "Picture"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Frames per second"
+msgstr ""
+
+msgctxt "#30012"
+msgid "How often the edges are read and sent. 20 is smooth; each frame costs CPU on the Pi."
+msgstr ""
+
+msgctxt "#30013"
+msgid "Responsiveness (%)"
+msgstr ""
+
+msgctxt "#30014"
+msgid "How far the LEDs move towards the new colour per frame. 100 follows the picture at once, lower values calm flicker."
+msgstr ""
+
+msgctxt "#30015"
+msgid "Edge depth (%)"
+msgstr ""
+
+msgctxt "#30016"
+msgid "How far into the picture each edge is averaged, in percent of the width (left and right) or the height (top and bottom)."
+msgstr ""
+
+msgctxt "#30017"
+msgid "Detect black bars"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Letterbox bars burnt into the video (a widescreen film in a 16:9 picture) are left out, so the strips show the picture and not the bars."
+msgstr ""
+
+msgctxt "#30020"
+msgid "LED strips"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Left edge"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Right edge"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Number of LEDs"
+msgstr ""
+
+msgctxt "#30024"
+msgid "LEDs along this edge of the TV. 0 = no strip on this edge."
+msgstr ""
+
+msgctxt "#30025"
+msgid "First LED"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Number of this strip's first LED as WLED counts them: over the whole strip, or within the main segment if WLED's 'Use main segment only' is on (0 = the very first)."
+msgstr ""
+
+msgctxt "#30027"
+msgid "Covers part of the edge (%)"
+msgstr ""
+
+msgctxt "#30028"
+msgid "A strip shorter than the TV side: how much of the edge it covers, from the top (left and right edges) or from the left (top and bottom edges). It then shows that part of the picture at the same scale as a full strip."
+msgstr ""
+
+msgctxt "#30029"
+msgid "First LED at the bottom"
+msgstr ""
+
+msgctxt "#30030"
+msgid "On if the strip starts at the bottom of the TV and runs upwards."
+msgstr ""
+
+msgctxt "#30031"
+msgid "Top edge"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Bottom edge"
+msgstr ""
+
+msgctxt "#30033"
+msgid "First LED at the right"
+msgstr ""
+
+msgctxt "#30034"
+msgid "On if the strip starts at the right of the TV and runs to the left."
+msgstr ""
